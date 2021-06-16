@@ -8,25 +8,10 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class PlayerController
 {
-    @GetMapping(value = "players")
-    public Player getPlayer()
-    {
-        return new Player();
-    }
-
-    @GetMapping(value = "/getplayerstring")
-    private String getPlayerString()
-    {
-        String url = "http://localhost:8081/players";
-        RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(url, String.class);
-        return result;
-    }
-
-    @GetMapping(value = "/getplayer")
+    @GetMapping(value = "/players")
     private Player getPlayerObject()
     {
-        String url = "http://localhost:8081/players";
+        String url = "http://localhost:8080/api/players";
         RestTemplate restTemplate = new RestTemplate();
         Player result = restTemplate.getForObject(url, Player.class);
         return result;

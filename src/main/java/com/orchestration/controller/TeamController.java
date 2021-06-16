@@ -8,25 +8,10 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class TeamController
 {
-    @GetMapping(value = "teams")
-    public Team getTeam()
-    {
-        return new Team();
-    }
-
-    @GetMapping(value = "/getteamstring")
-    private String getTeamString()
-    {
-        String url = "http://localhost:8081/teams";
-        RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(url, String.class);
-        return result;
-    }
-
-    @GetMapping(value = "/getteam")
+    @GetMapping(value = "/teams")
     private Team getTeamObject()
     {
-        String url = "http://localhost:8081/team";
+        String url = "http://localhost:8080/api/teams";
         RestTemplate restTemplate = new RestTemplate();
         Team result = restTemplate.getForObject(url, Team.class);
         return result;
